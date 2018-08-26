@@ -4,6 +4,7 @@ import store from '../store'
 class Menu extends Component {
     handleClick=(str) => {
         store.dispatch({type:'SHOW_ALL',str:str})
+        // console.log(1)
     }
     handleCLear=() => {
         store.dispatch({type:'CLEAR_COMPLETED'})
@@ -45,6 +46,7 @@ const Wrap=styled.div`
         right: 0;
         bottom: 0;
         left: 0;
+        z-index:-1;
         height: 50px;
         overflow: hidden;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
@@ -66,6 +68,7 @@ const Wrap=styled.div`
     text-decoration: none;
     border: 1px solid #fff;
     border-radius: 3px;
+    
   }
   div>span:hover {
     border: 1px solid rgba(175, 47, 47, 0.2);

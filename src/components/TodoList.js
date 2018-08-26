@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import store from '../store'
 import { getCurrentTodos } from '../selectors';
 import styled from 'styled-components'
-import {deleteEvent,changeIsCompleted} from'../actions'
 class TodoList extends Component {
     isToCompleted=(id) => {
    
