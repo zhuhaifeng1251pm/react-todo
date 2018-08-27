@@ -36,6 +36,10 @@ export const changeIsCompleted = (todos,id) => {
     })
   }
 }
+// export const loadPost = posts => ({
+//   type: DELETE_EVENT,
+//   posts
+// });
 export const  loadPost = ()=>{
  return dispatch =>{
   const uri ="http://localhost:3008/todoText"
