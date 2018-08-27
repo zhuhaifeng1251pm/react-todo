@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
-import store from '../store'
-import shortid from 'shortid'
+// import store from '../store'
+// import shortid from 'shortid'
+import axios from 'axios';
 class InputText extends Component {
     state={
         text:''
@@ -14,7 +15,13 @@ class InputText extends Component {
     addToEvent=() => {
     const {text}=this.state
     if(text.trim()){
-        store.dispatch({type:'ADD_TO_EVENT',todoText:text,id:shortid()})
+        // store.dispatch({type:'ADD_TO_EVENT',todoText:text,id:shortid()})
+        const uri ="http://localhost:3008/todoText"
+        axios.post(uri,{todoText:text,isCompleted:false}).then(res=>{
+            this.props.addEvent(res.data)
+            // console.log(res.data)
+        }).catch(err=>{})
+        // this.props.addEvent(text,shortid())
      this.setState({
          text:''
      })

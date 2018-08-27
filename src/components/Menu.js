@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import store from '../store'
 class Menu extends Component {
     handleClick=(str) => {
-        store.dispatch({type:'SHOW_ALL',str:str})
-        // console.log(1)
+        // store.dispatch({type:'SHOW_ALL',str:str})
+        // console.log(this.props)
+        // console.log(str)
+        this.props.showAll(str)
     }
     handleCLear=() => {
         store.dispatch({type:'CLEAR_COMPLETED'})

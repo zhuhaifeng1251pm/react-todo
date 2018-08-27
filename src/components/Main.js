@@ -6,17 +6,17 @@ import Menu from './Menu';
 class Main extends Component {
     
     render() {
-        console.log(this.props)
-        const {todos,filter,deleteEvent,changeIsCompleted}=this.props
+        // console.log(this.props)
+        const {todos,filter,deleteEvent,changeIsCompleted,showAll,addEvent}=this.props
     
         return (
             <Wrap>
-                <InputText/>
+                <InputText addEvent={addEvent}/>
                 <TodoList   todos={todos} filter={filter} deleteEvent={deleteEvent
-} changeIsCompleted={changeIsCompleted}
+} changeIsCompleted={changeIsCompleted} 
 
                 />
-                <Menu filter={filter} todos={todos}/>
+                <Menu filter={filter} todos={todos} showAll={showAll}/>
             </Wrap>
         );
     }

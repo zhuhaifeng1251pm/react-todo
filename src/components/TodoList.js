@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
 import { getCurrentTodos } from '../selectors';
 import styled from 'styled-components'
+// import axios from 'axios';
 class TodoList extends Component {
     isToCompleted=(id) => {
-   
-            // store.dispatch(changeIsCompleted(id))
-            const {changeIsCompleted}=this.props
-            changeIsCompleted(id)
+            const {todos,changeIsCompleted}=this.props
+            // // store.dispatch(changeIsCompleted(id))
+            // const uri=`http://localhost:3008/todoText/${id}`
+            
+            // axios.patch(uri,{isCompleted:!currentState(todos,id)}).then(res=>{
+            //   console.log(res)
+            // changeIsCompleted(id)
+            // })
+            changeIsCompleted(todos,id)
+            
         }
         handleDelete=(id) => {
-           
-            // store.dispatch(deleteEvent(id))
-            const {deleteEvent}=this.props
-            deleteEvent(id)
+          //  const uri=`http://localhost:3008/todoText/${id}`
+          //   // store.dispatch(deleteEvent(id))
+          //  axios.delete(uri).then(res=>{
+          //    const {deleteEvent}=this.props
+          //   deleteEvent(id)
+          //  }).catch(err=>{})
+            this.props.deleteEvent(id)
+            // console.log(id)
         }
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         const {todos,filter}=this.props
-        const listItems= todos.length===0?'': <ul>{getCurrentTodos(todos,filter).map(todo=> <li style={{textDecoration:todo.isCompleted?'line-through':'none'}} key={todo.id} onClick={()=>{this.isToCompleted(todo.id)}}> <div>
+        const listItems= todos.length===0?<span>数据加载中</span>: <ul>{getCurrentTodos(todos,filter).map(todo=> <li style={{textDecoration:todo.isCompleted?'line-through':'none'}} key={todo.id} onClick={()=>{this.isToCompleted(todo.id)}}> <div>
         <input type="checkbox" id={`input${todo.id}`}  checked={todo.isCompleted}/>
         <label htmlFor={`input${todo.id}`} />
         <span>{todo.todoText}</span>
@@ -53,7 +64,6 @@ ul {
     line-height:50px;
     font-size: 24px;
     justify-content: space-between;
-
     display: flex;
 align-items:center;  }
   ul > li:hover button {

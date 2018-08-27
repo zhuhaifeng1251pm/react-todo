@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import Maincontainer from '../containers/Maincontainer';
 import styled from 'styled-components'
+// import axios from 'axios'
+// import store from '../store'
+import {connect} from'react-redux'
+import { loadPost} from '../actions/index';
 class App extends Component {
+    componentDidMount=() => {
+//         const uri ="http://localhost:3008/todoText"
+//         axios.get(uri).then(res=>{
+// this.props.loadPost(res.data)
+//                 }).catch(err=>{})
+this.props.loadPost()
+console.log(this.props)
+    }
     render() {
         return (
             <Wrap>
@@ -17,7 +29,7 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect(null,{loadPost})(App);
 const Wrap=styled.div`
 display:flex;
 flex-direction: column;

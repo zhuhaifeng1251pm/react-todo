@@ -8,3 +8,8 @@ const getCurrentTodos=(state,filter)=>{
     }
 }
 export {getCurrentTodos}
+
+export const currentState=(todos,id) => {
+    return todos.find(todo=>todo.id===id).isCompleted
+    
+}
