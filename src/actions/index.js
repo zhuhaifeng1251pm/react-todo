@@ -57,7 +57,13 @@ export const showAll =(str)=>({
 type:SHOW_ALL,
 str
 })
-export const addEvent =(data) =>({
-  type:ADD_TO_EVENT,
-  data
-})
+export const addEvent =(text) =>dispatch=>{
+  const uri ="http://localhost:3008/todoText"
+  axios.post(uri,{todoText:text,isCompleted:false}).then(res=>{
+      dispatch({
+        type:ADD_TO_EVENT,
+        data:res.data
+      })
+  }).catch(err=>{})
+
+}

@@ -16,11 +16,11 @@ class InputText extends Component {
     const {text}=this.state
     if(text.trim()){
         // store.dispatch({type:'ADD_TO_EVENT',todoText:text,id:shortid()})
-        const uri ="http://localhost:3008/todoText"
-        axios.post(uri,{todoText:text,isCompleted:false}).then(res=>{
-            this.props.addEvent(res.data)
+        // const uri ="http://localhost:3008/todoText"
+        // axios.post(uri,{todoText:text,isCompleted:false}).then(res=>{
+            this.props.addEvent(text)
             // console.log(res.data)
-        }).catch(err=>{})
+        // }).catch(err=>{})
         // this.props.addEvent(text,shortid())
      this.setState({
          text:''
