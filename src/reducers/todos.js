@@ -1,5 +1,24 @@
 import { DELETE_EVENT,CLEAR_COMPLETED,CHANGE_ISCOMPLETED,LOAD_POST,ADD_TO_EVENT } from "../constants/actionType";
-const inistialState=[
+const inistialState=[{
+    "id": "123",
+    "todoText": "123123",
+    "isCompleted": false
+  },
+  {
+    "id": "456",
+    "todoText": "qweqweqweq",
+    "isCompleted": true
+  },
+  {
+    "id": "789",
+    "todoText": "qweqwe12312qweq",
+    "isCompleted": true
+  },
+  {
+    "todoText": "123123123",
+    "isCompleted": false,
+    "id": "aWwrZVS"
+  }
     
 ]
 const todos=(state=inistialState,action)=>{
