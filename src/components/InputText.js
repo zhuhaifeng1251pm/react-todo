@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components'
 // import store from '../store'
 // import shortid from 'shortid'
-import axios from 'axios';
+// import axios from 'axios';
 class InputText extends Component {
     state={
         text:''

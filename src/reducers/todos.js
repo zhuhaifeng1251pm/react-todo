@@ -24,9 +24,13 @@ const inistialState=[{
 const todos=(state=inistialState,action)=>{
     switch(action.type){
         case ADD_TO_EVENT:
-        console.log(action)
-        return [...state,action.data]
-        case CHANGE_ISCOMPLETED:console.log(action); return state.map( todo => todo.id === action.id? { ...todo, isCompleted: action.isCompleted }: todo)
+        // return [...state,action.data]
+        // console.log(action)
+        return [...state,{todoText:action.data,id:action.id,isCompleted:action.isCompleted}]
+
+        // case CHANGE_ISCOMPLETED: return state.map( todo => todo.id === action.id? { ...todo, isCompleted: action.isCompleted }: todo)
+        case CHANGE_ISCOMPLETED: return state.map( todo => todo.id === action.id? { ...todo, isCompleted: !todo.isCompleted }: todo)
+
          
         case DELETE_EVENT:return state.filter(todo=>todo.id !==action.id)
         case CLEAR_COMPLETED:return state.filter(todo=>todo.isCompleted===false)

@@ -6,7 +6,7 @@ import Menu from './Menu';
 class Main extends Component {
     
     render() {
-        // console.log(this.props)
+        console.log(this.props)
         const {todos,filter,deleteEvent,changeIsCompleted,showAll,addEvent}=this.props
     
         return (
